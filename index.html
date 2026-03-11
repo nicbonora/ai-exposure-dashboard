@@ -5,59 +5,68 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI e Lavoro — Anthropic Economic Index 2026</title>
 <style>
-:root{--bg:#0a0a0a;--s1:#141414;--s2:#1e1e1e;--bd:#272727;--tx:#f0f0f0;--mu:#666;--ac:#e06c2c;--r:14px}
+:root{--bg:#0a0a0a;--s1:#141414;--s2:#1e1e1e;--bd:#272727;--tx:#f0f0f0;--mu:#a0a0a0;--ac:#e06c2c;--r:14px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;display:flex;flex-direction:column;align-items:center}
 .screen{display:none;width:100%;max-width:620px;padding:2.5rem 1.5rem;min-height:100vh;flex-direction:column}
 .screen.active{display:flex}
-.logo{font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3.5rem;display:flex;align-items:center;gap:.6rem}
+.logo{font-size:.94rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3.5rem;display:flex;align-items:center;gap:.6rem}
 .logo-dot{display:inline-block;width:18px;height:18px;background:var(--ac);border-radius:4px;flex-shrink:0}
 .hero-title{font-size:2.6rem;font-weight:700;line-height:1.15;margin-bottom:.75rem}
-.hero-sub{color:var(--mu);margin-bottom:2.5rem;line-height:1.65;font-size:.95rem}
+.hero-sub{color:var(--mu);margin-bottom:2.5rem;line-height:1.65;font-size:1.24rem}
 .search-wrap{position:relative}
-#search{width:100%;padding:1rem 1.25rem;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);color:var(--tx);font-size:1rem;outline:none;transition:border-color .2s}
+#search{width:100%;padding:1rem 1.25rem;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);color:var(--tx);font-size:1.3rem;outline:none;transition:border-color .2s}
 #search::placeholder{color:var(--mu)}
 #search:focus{border-color:var(--ac)}
 #suggestions{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);list-style:none;overflow-y:auto;max-height:280px;z-index:10;display:none}
 #suggestions.open{display:block}
-#suggestions li{padding:.85rem 1.25rem;cursor:pointer;font-size:.9rem;border-bottom:1px solid var(--bd);transition:background .15s}
+#suggestions li{padding:.85rem 1.25rem;cursor:pointer;font-size:1.17rem;border-bottom:1px solid var(--bd);transition:background .15s}
 #suggestions li:last-child{border-bottom:none}
 #suggestions li:hover{background:var(--s2)}
-.hint{margin-top:1rem;font-size:.78rem;color:var(--mu)}
-.footer-note{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:.72rem;color:var(--mu);line-height:1.7}
-.back-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;cursor:pointer;margin-bottom:2rem;background:none;border:none;color:var(--mu);transition:color .2s;padding:0;font-family:inherit}
+.hint{margin-top:1rem;font-size:1rem;color:var(--mu)}
+.footer-note{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:.94rem;color:var(--mu);line-height:1.7}
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:1.1rem;cursor:pointer;margin-bottom:2rem;background:none;border:none;color:var(--mu);transition:color .2s;padding:0;font-family:inherit}
 .back-btn:hover{color:var(--tx)}
-.job-heading{font-size:1.6rem;font-weight:700;margin-bottom:.3rem}
-.job-cat{color:var(--mu);font-size:.85rem;margin-bottom:2.5rem}
+.job-heading{font-size:2.08rem;font-weight:700;margin-bottom:.3rem}
+.job-cat{color:var(--mu);font-size:1.1rem;margin-bottom:2.5rem}
 .gauge-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:2rem}
 .tier-card{width:100%;border-radius:var(--r);padding:1.25rem 1.5rem;background:var(--s1);border-left:4px solid var(--ac);margin-bottom:1.5rem}
-.tier-name{font-weight:700;font-size:1.05rem;margin-bottom:.4rem}
-.tier-desc{color:var(--mu);font-size:.88rem;line-height:1.65}
+.tier-name{font-weight:700;font-size:1.37rem;margin-bottom:.4rem}
+.tier-desc{color:var(--mu);font-size:1.15rem;line-height:1.65}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1.75rem}
 .stat-box{background:var(--s1);border-radius:var(--r);padding:1rem 1.25rem;border:1px solid var(--bd)}
-.stat-lbl{font-size:.72rem;color:var(--mu);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem}
-.stat-val{font-size:1.35rem;font-weight:700}
-.cta-btn{width:100%;padding:1rem;background:var(--ac);color:#fff;border:none;border-radius:var(--r);font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:inherit}
+.stat-lbl{font-size:.94rem;color:var(--mu);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem}
+.stat-val{font-size:1.75rem;font-weight:700}
+.cta-btn{width:100%;padding:1rem;background:var(--ac);color:#fff;border:none;border-radius:var(--r);font-size:1.3rem;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:inherit}
 .cta-btn:hover{opacity:.85}
-.section-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.5rem}
-.ctx-title{font-size:1.35rem;font-weight:700;margin-bottom:2rem}
+.section-lbl{font-size:.94rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.5rem}
+.ctx-title{font-size:1.75rem;font-weight:700;margin-bottom:2rem}
 .dist-wrap{margin-bottom:2rem}
 .dist-track{height:8px;background:var(--s2);border-radius:4px;position:relative;margin:.85rem 0}
 .dist-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#3b82f6 0%,#10b981 30%,#f59e0b 60%,#ef4444 100%)}
 .dist-marker{position:absolute;top:-5px;width:3px;height:18px;background:#fff;border-radius:2px;transform:translateX(-50%);transition:left 1.1s cubic-bezier(.4,0,.2,1)}
-.dist-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--mu)}
-.dist-you{font-size:.78rem;color:var(--tx);margin-top:.5rem;text-align:center;min-height:1.2rem}
+.dist-labels{display:flex;justify-content:space-between;font-size:.94rem;color:var(--mu)}
+.dist-you{font-size:1rem;color:var(--tx);margin-top:.5rem;text-align:center;min-height:1.2rem}
 .ctx-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-bottom:2rem}
-.cs{background:var(--s1);border-radius:var(--r);padding:1rem;text-align:center;border:1px solid var(--bd)}
-.cs-val{font-size:1.3rem;font-weight:700;margin-bottom:.3rem}
-.cs-lbl{font-size:.68rem;color:var(--mu);line-height:1.4}
-.notes-title{font-size:.95rem;font-weight:600;margin-bottom:1rem}
-.note-item{display:flex;gap:.75rem;margin-bottom:.85rem;font-size:.85rem;color:var(--mu);line-height:1.55}
+.cs-val{font-size:1.7rem;font-weight:700;margin-bottom:.3rem}
+.cs-lbl{font-size:.88rem;color:var(--mu);line-height:1.4}
+.notes-title{font-size:1.24rem;font-weight:600;margin-bottom:1rem}
+.note-item{display:flex;gap:.75rem;margin-bottom:.85rem;font-size:1.1rem;color:var(--mu);line-height:1.55}
 .note-dot{width:6px;height:6px;border-radius:50%;background:var(--ac);flex-shrink:0;margin-top:.42rem}
-.source{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:.72rem;color:var(--mu);line-height:1.65}
+.source{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:.94rem;color:var(--mu);line-height:1.65}
 .source a{color:var(--mu)}
 .gauge-bg{fill:none;stroke:var(--s2);stroke-width:12;stroke-linecap:round}
 .gauge-fill{fill:none;stroke-width:12;stroke-linecap:round;transition:stroke-dasharray 1.1s cubic-bezier(.4,0,.2,1),stroke .3s}
+.stat-lbl-wrap{display:flex;align-items:center;gap:.4rem;margin-bottom:.35rem}
+.tip-wrap{position:relative;display:inline-flex;align-items:center}
+.tip-icon{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--mu);color:var(--mu);font-size:.65rem;font-weight:700;cursor:help;flex-shrink:0;font-style:normal;line-height:1;user-select:none}
+.tip-box{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#242424;border:1px solid var(--bd);border-radius:10px;padding:.7rem 1rem;font-size:.88rem;color:#d0d0d0;line-height:1.55;width:220px;z-index:50;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.tip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#242424}
+.tip-wrap:hover .tip-box,.tip-wrap:focus-within .tip-box{display:block}
+.cs{position:relative;background:var(--s1);border-radius:var(--r);padding:1.25rem 1rem;text-align:center;border:1px solid var(--bd)}
+.cs .tip-wrap{position:absolute;top:.6rem;right:.6rem}
+.cs .tip-box{left:auto;right:0;transform:none}
+.cs .tip-box::after{left:auto;right:12px;transform:none}
 </style>
 </head>
 <body>
@@ -66,7 +75,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
   <h1 class="hero-title">Il tuo lavoro<br>e l&#39;AI</h1>
   <p class="hero-sub">Cerca la tua professione e scopri in che misura i Large Language Model vengono gi&#224; usati &#8212; in contesti professionali reali &#8212; per svolgere i tuoi task quotidiani.</p>
   <div class="search-wrap">
-    <input id="search" type="text" placeholder="Es. Programmatore, Avvocato, Grafico..." autocomplete="off">
+    <input id="search" type="text" placeholder="E.g. Software Developer, Financial Analyst, Writer..." autocomplete="off">
     <ul id="suggestions"></ul>
   </div>
   <p class="hint">~758 occupazioni del Bureau of Labor Statistics (USA)</p>
@@ -81,8 +90,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <svg width="220" height="130" viewBox="0 0 220 130">
       <path class="gauge-bg" d="M 20 120 A 90 90 0 0 1 200 120"/>
       <path class="gauge-fill" id="gauge-fill" d="M 20 120 A 90 90 0 0 1 200 120" stroke="#e06c2c" stroke-dasharray="0 282.74"/>
-      <text id="gauge-pct" x="110" y="105" text-anchor="middle" font-size="28" font-weight="700" fill="#f0f0f0">0%</text>
-      <text x="110" y="124" text-anchor="middle" font-size="11" fill="#666">esposizione osservata</text>
+      <text id="gauge-pct" x="110" y="105" text-anchor="middle" font-size="36" font-weight="700" fill="#f0f0f0">0%</text>
+      <text x="110" y="126" text-anchor="middle" font-size="14" fill="#a0a0a0">esposizione osservata</text>
     </svg>
   </div>
   <div class="tier-card" id="tier-card">
@@ -90,8 +99,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <div class="tier-desc" id="tier-desc">&#8212;</div>
   </div>
   <div class="stats-grid">
-    <div class="stat-box"><div class="stat-lbl">Media categoria</div><div class="stat-val" id="p-catavg">&#8212;</div></div>
-    <div class="stat-box"><div class="stat-lbl">Ranking</div><div class="stat-val" id="p-rank">&#8212;</div></div>
+    <div class="stat-box">
+      <div class="stat-lbl-wrap">
+        <div class="stat-lbl">Media categoria</div>
+        <div class="tip-wrap"><span class="tip-icon">i</span><div class="tip-box">Esposizione media di tutte le occupazioni nella stessa categoria BLS. Ti dice se questa professione è più o meno esposta rispetto al suo settore di riferimento.</div></div>
+      </div>
+      <div class="stat-val" id="p-catavg">&#8212;</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-lbl-wrap">
+        <div class="stat-lbl">Ranking</div>
+        <div class="tip-wrap"><span class="tip-icon">i</span><div class="tip-box">Posizione di questa occupazione tra le 756 censite, ordinate per esposizione crescente. #1 = meno esposta, #756 = più esposta.</div></div>
+      </div>
+      <div class="stat-val" id="p-rank">&#8212;</div>
+    </div>
   </div>
   <button class="cta-btn" onclick="showContext()">Vedi nel contesto generale &#8594;</button>
 </section>
@@ -110,9 +131,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <p class="dist-you" id="dist-you"></p>
   </div>
   <div class="ctx-stats">
-    <div class="cs"><div class="cs-val" id="c-pct">&#8212;</div><div class="cs-lbl">percentile di esposizione</div></div>
-    <div class="cs"><div class="cs-val">30%</div><div class="cs-lbl">occupazioni a esposizione zero</div></div>
-    <div class="cs"><div class="cs-val" id="c-bls">&#8212;</div><div class="cs-lbl">crescita BLS stimata 2024&#8211;34</div></div>
+    <div class="cs">
+      <div class="tip-wrap"><span class="tip-icon">i</span><div class="tip-box">In che percentuale di occupazioni questa è meno esposta. 90° percentile = più esposta del 90% delle professioni censite.</div></div>
+      <div class="cs-val" id="c-pct">&#8212;</div>
+      <div class="cs-lbl">percentile di esposizione</div>
+    </div>
+    <div class="cs">
+      <div class="tip-wrap"><span class="tip-icon">i</span><div class="tip-box">Il 30% delle professioni censite ha esposizione zero: nessun task osservato su Claude in contesti professionali. Tipicamente lavori manuali, fisici o molto specializzati.</div></div>
+      <div class="cs-val">30%</div>
+      <div class="cs-lbl">occupazioni a esposizione zero</div>
+    </div>
+    <div class="cs">
+      <div class="tip-wrap"><span class="tip-icon">i</span><div class="tip-box">Stima derivata dalla correlazione del report: ogni +10% di esposizione corrisponde a -0,6% di crescita occupazionale prevista dal BLS. Valore indicativo, non ufficiale.</div></div>
+      <div class="cs-val" id="c-bls">&#8212;</div>
+      <div class="cs-lbl">crescita BLS stimata 2024&#8211;34</div>
+    </div>
   </div>
   <p class="notes-title">Dal report Anthropic</p>
   <div class="note-item"><div class="note-dot"></div><span>Nessun aumento sistematico della disoccupazione nei settori pi&#249; esposti (dati CPS, 2022&#8211;2026).</span></div>
